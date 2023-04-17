@@ -1,0 +1,152 @@
+@charset "utf-8";
+/* CSS Document */
+
+*{
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	background-color: rgba(255,204,0,0.3);
+	background-image: url(img/giphy.gif);
+	background-repeat: repeat ;
+	min-width:700px;
+}
+
+
+/*position sticky intent to put img on top*/
+
+header{
+	background-size: 100% 100%;
+	background-image: url(img/sky.jpg);
+	background-repeat:no-repeat;
+}
+
+header img{
+	width: 700px;
+	height: 150px;
+	margin: 0 auto;
+	padding: 3px 0;
+	display: block;
+}
+
+nav{
+	background-color: #594878;
+	margin-bottom: 30px;
+	position: -webkit-sticky; /* Safari */
+	position: sticky;
+	top: 0;
+	height: 52px;
+	width: 100%;
+	z-index: 100;
+}
+
+nav ul{
+	list-style-type: none;
+	overflow: hidden;
+	margin: 0;
+	padding:0;
+	height:100%;	
+}
+
+nav li {
+	float: left;
+	hright:100%;
+}
+
+nav li a {
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 18.5px 30px;
+	text-decoration: none;
+	font-size: 15px;
+}
+
+/* import font below for head*/
+/* !head font need to adjust postition!*/
+
+nav #logo{
+	float: left;
+	padding: 12px 50px;
+}
+
+nav #logo a{
+	color: #00CCCC;
+	width: 300px;
+	/*font-family: 
+	margin: */
+
+	text-align: center;
+	text-decoration: none;
+	font-size: 22px;
+	
+}
+
+nav li a.active {
+	background-color: #800080;
+	color: #C8EF10;
+}
+
+nav li a:hover {
+	background-color: #4da866;
+	color: black;
+}
+
+footer{
+	font-size: 10pt;
+	line-height: 1.5;
+	padding: 20px;
+	background-image: linear-gradient(#CCC,#666);
+	clear:right;
+	text-align:center;
+}
+
+#footer-right{
+	color: #330033;
+	padding-right: 30px;
+	float:right;
+	text-align: right;
+}
+
+#footer-right img{
+	width: 20%;
+	height: 20%;
+	min-width: 250px;
+	min-height: 100px;
+}
+
+footer > p{
+	color: #333;
+	display: block;
+	margin: 0 auto;
+}
+
+#follow{
+	color: #300;
+	line-height: 2;
+}
+
+footer #bottom{
+	text-align: ;
+	font-size:x-small;
+	line-height: 0.9;
+}
+
+/*		fixed position of iframe
+@media screen and (max-width: 700px){
+	body{
+			min-width: 100vw;
+			font-size: 5vw;
+	}
+	
+	#head{
+		display: none;
+	}
+	
+	nav li a{
+		font-size: 3vw;
+	}
+	/*overflow: scroll;*/
+}
+*/

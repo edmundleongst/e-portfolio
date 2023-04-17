@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    	<meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>About Me</title>
+        <link href="eportfolio.css" rel="stylesheet" type="text/css" media="screen,projection">
+        
+        <style>
+		#top-content{
+			min-width: 700px;
+			height: 100%;
+			position:relative;
+			display: flex;
+		}
+		
+		#left{
+			float: left;
+			min-width: 70%;
+		}
+		
+		#top-content #left img{
+			width: 150px;
+			height: 150px;
+			border: 1px black solid;
+			float: left;
+			margin-left: 50px;
+			margin-right:40px;
+			margin-bottom: 20px;<!---->
+		}
+		
+		article{
+			padding: 10px;
+			margin-left: 50px;
+			margin-right: 25px;
+			margin-bottom: 50px;
+			text-align: justify;
+			background-color: rgba(255,204,0,0.55);
+		}
+		
+		#right{
+			float: right;
+			min-width: 30%;
+			height: 90%;
+		}
+		
+		aside{
+			margin-right: 20px;
+			border-left: 1px #69C solid;
+			position: relative;
+			margin-left: auto;
+		}
+		
+		iframe{
+			width: 90%;
+			height: 200px;
+			overflow: auto;
+			display: block;
+			margin: 20px;
+		}
+		
+		table, th, td{
+			border: 2px black solid;
+			border-collapse: collapse;
+		}
+		
+		table{
+			clear: both;
+			margin-bottom: 40px;
+			margin-left: auto;
+			margin-right: auto;
+			width: 75%;
+			min-width: 600px;
+		}
+		
+		th, td{
+			text-align: center;
+		}
+		
+		.desc, .desc ul li{
+			text-align: left;
+			margin: 10px;
+			vertical-align: top;
+		}
+		
+		table ul li{
+			text-align: left;
+		}
+		
+		</style>
+        
+		<script>
+		var myArray = ['img/English 2 - Word 3_18_2020 4_38_07 PM (2).png']
+		var count = 0;
+		setInterval(function() {
+		  //use this below line if you want random images
+		  //var rand = myArray[Math.floor(Math.random() * myArray.length)];
+		
+		  if (count >= myArray.length) count = 0; // if it is last image then show the first image.
+		  // use this below line if you want images in order.
+		  var rand = myArray[count];
+		  document.getElementById('img_cont').src = rand;
+		  document.getElementById('img_cont').alt = rand; // use 'alt' to display the image name if image is not found
+		  count++;
+		}, 2000); // 1000 = 1 second
+		</script>
+        
+    </head>
+
+<body style="rgba(,,,0.55);">
+		<header>
+        	<img src="img/header.png">
+        </header>
+        
+		<nav><!--head need adjust position!-->
+            <div  id="logo"><a href="firstPage.html">My e-Portfolio</a></div>
+            <ul>
+                <li><a class="active" href="firstPage.html">Home</a></li>
+                <li><a href="secondPage.html">Modules</a></li>
+                <li><a href="thirdPage.html">Projects</a></li>
+                <li><a href="fourthPage.html">Video</a></li>
+            </ul>
+        </nav>
+        
+        <div id="top-content">
+        
+        	<div id="left">
+                    
+                <img src="img/me_img.jpg">
+                        
+                <article>
+                
+                <h1>Leong Shii Tsong</h1>
+                <p style="font-size:10pt; color:rgba(51,0,204,1); font:bold;">1<sup>st</sup> Year in Bachelor of Science</p>
+                <p style="font-size:10pt; color:rgba(51,0,204,1); font:bold;">Major in Programming and Multimedia</p>
+                
+                <p><br>Hi! My name is Leong Shii Tsong.  I am 22 years old this year and I was born in Selangor. I am studying in YPC International College right now. The programme that I have participated is Bachelor of Multimedia Computing. I choosed this course because I am interested in programming. My ambitious is to become a computer scientist. </p>
+            
+                <p><br>What I am learning in school is mostly consists of multimedia and programming. These modules are interesting for me. I have always wanted to learn more about computer and the architecture of it. Personally I felt that computer can help many people in their daily life. It had transformed our society from human-based economics to computer-based economics. It had revolutionized the world in an unpredicted ways. In instance, e-commerce had enabled people to purchase things from their fingertips through smartphone. Various industries have also utilized this technology to help them maximize their profits. Data modelling have helped them to have an eye on and keep track of their consumers' preference and habits.</p> 
+                
+                <p><br>Multimedia have also play an important role in giving connection and entertainment for most of the people. For example, several social media applications like Facebook and Instagram have give more than ever enough entertainment to people. The flowing rate of information have transcend more than ever before. The slogan  and intention of connecting the world have been replaced and substitute. People have to imposed stricter self-regulation and control on themselved in order not to be trapped in the technology world. However, I believed in technology can help and have helped people in their daily life. </p>
+                
+                </article>
+            </div>
+            
+            <div id="right">
+                <aside>
+                    <iframe id="img_cont" src="img/eclipse-workspace - SeatBookingSystem_src_assignment2_Main.java - Eclipse IDE 3_18_2020 2_51_24 PM.png">
+                    <p>Sorry, iframe is not supported</p>
+                    </iframe>
+                </aside>
+            </div>
+            
+        </div>  
+        
+        <table>
+        <caption>Here is my qualification and prior study to-date</caption>
+        	<thead>
+            	<tr>
+                	<th>Year</th>
+                    <th colspan="3">Qualification</th>
+                </tr>
+            </thead>
+            
+            <tbody>
+            	<tr>
+                <td>S.M.K Bandar Baru Sungai Long<br><br>Sijil Pengajian Malaysia<br><br>Year 2012 - Year 2017</td>
+                <td></td>
+                <td>
+                    <div class="desc" border-style: none;>
+                    S. P. M.
+                        <ul>
+                            <br><li>Bahasa Melayu &#10004;</li>
+                            <li>Bahasa Inggeris &#10004;</li>
+                            <li>Pendidikan Moral &#10004;</li>
+                            <li>Sejarah &#10004;</li>
+                            <li>Mathematics &#10004;</li>
+                            <li>Additional Mathematics &#10004;</li>
+                            <li>Sains Pertanian &#10004;</li>
+                            <li>Physics &#10004;</li>
+                            <li>Chemistry &#10004;</li>
+                            <li>Biology &#10004;</li>
+                    </div>
+                </td>
+                <td></td>
+                </tr>
+                
+                <tr>
+                <td>YPC International College<br><br>Foundation in Business and I.T<br><br>April 2018 - April 2019</td>
+                <td>
+                    <div class="desc">
+                    First Semester: April - August 2018
+                        <ul>
+                            <br><li>Pengajian Malaysia &#10004;</li>
+                            <li>Bahasa Kebangsaan A &#10004;</li>
+                            <li>Introduction To Business &#10004;</li>
+                            <li>IT Applications &#10004;</li>
+                            <li>Principles Of Accounting &#10004;</li>
+                            <li>English Proficiency &#10004;</li>
+                         </ul>
+                    </div>
+                </td>
+
+                <td>
+                    <div class="desc">
+                    Second Semester: August - December 2018
+                        <ul>
+                            <br><li>Pendidikan Moral &#10004;</li>
+                            <li>Principles of Economics &#10004;</li>
+                            <li>Business Statistics &#10004;</li>
+                            <li>Introduction To Business Communications &#10004;</li>
+                            <li>Principles Of Management &#10004;</li>
+                        </ul>
+                    </div>    
+
+                <td>
+                    <div class="desc">
+                    Third Semester: January - April 2019
+                        <ul>
+                            <br><li>Introduction To Business Law &#10004;</li>
+                            <li>Introduction To Information Technology &#10004;</li>
+                            <li>Mathematics &#10004;</li>
+                            <li>Study Skills And Critical Thinking &#10004;</li>
+                            <li>Programming Fundamentals &#10004;</li>
+                        </ul>
+                    </div>
+                </td>
+                </tr>
+                    
+                <tr>
+                <td rowspan="3">YPC International College<br><br>BSc. (Hons) Multimedia Computing<br><br>April 2019 - Current</td>
+                <td>
+                    <div class="desc">
+                    First Semester: April - August 2019
+                        <ul>
+                            <br><li>Visual Programming &#10004;</li>
+                            <li>English &#10004;</li>
+                            <li>Tamadun Islam dan Tamadun Asia (T.I.T.A.S) &#10004;</li>
+                            <li>Hubungan Etnik &#10004;</li>
+                        </ul>
+                    </div>
+                </td>
+
+                <td>
+                	<div class="desc">
+                    Second Semester: September - December 2019
+                    	<ul>
+                              <br><li>Introduction to Programming &#10004;</li>
+                              <li>Fundamentals of Multimedia &#10004;</li>
+                              <li>Computer Systems &#10004;</li>
+                        </ul>
+                    </div>
+                </td>
+
+                <td>
+                	<div class="desc">
+                    Third Semester: January - April 2020
+                    	<ul>
+                        	<br><li>Internet and Web Technologies &#10069;</li>
+                            <li>Personal and Professional Development &#10069;</li>
+                            <li>Data Modelling &#10069;</li>
+                            <li>Problem Solving for Multimedia Computing &#10069;</li>
+                        </ul>
+                    </div>
+                </td>
+                </tr>
+                
+            </tbody>
+		</table>
+              
+        <footer>
+        
+        <div id="footer-right">
+            <p>In collaboration with: </p>
+            <img src="img/logo-e1579363057245.png" alt="img/ypc-logo.jpg">
+            <p>Copyright© 2020.</p>
+            <p>All works reserved by Leong Shii Tsong.</p>
+        </div>
+        
+            <p id="follow">Follow me on Facebook, Instagram.</p>
+	        <p id="bottom">This is a fictional website that not intended to publish on web and aim for accomplishment of a project. This is a project that is solely done by me, Leong Shii Tsong. Any plagiarism or used for personal purpose without informing may inflicted up unneccessary issue. Further investigation may raised as a result.</p>
+	        
+        </footer>
+</body>
+</html>

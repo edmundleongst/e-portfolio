@@ -1,0 +1,191 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Video Element</title>
+<link href="eportfolio.css" rel="stylesheet" type="text/css" media="screen,projection">
+		
+        </style>
+        
+		<script>
+		var myArray = ['img/English 2 - Word 3_18_2020 4_38_07 PM (2).png']
+		var count = 0;
+		setInterval(function() {
+		  //use this below line if you want random images
+		  //var rand = myArray[Math.floor(Math.random() * myArray.length)];
+		
+		  if (count >= myArray.length) count = 0; // if it is last image then show the first image.
+		  // use this below line if you want images in order.
+		  var rand = myArray[count];
+		  document.getElementById('img_cont').src = rand;
+		  document.getElementById('img_cont').alt = rand; // use 'alt' to display the image name if image is not found
+		  count++;
+		}, 2000); // 1000 = 1 second
+		</script>
+        
+</head>
+
+<body>
+   
+    <header>
+        <img src="img/header.png">
+    </header>
+    
+    <nav>
+        <div  id="logo"><a href="firstPage.html">My e-Portfolio</a></div>
+        <ul>
+            <li><a href="firstPage.html">Home</a></li>
+            <li><a href="secondPage.html">Modules</a></li>
+            <li><a href="thirdPage.html">Details</a></li>
+            <li><a class="active" href="fourthPage.html">Video</a></li>
+        </ul>
+    </nav>
+    
+    <div style="margin: 0 auto; margin-bottom: 20px;background-color: rgba(255,204,0,0.55);border: 2px solid black; border-radius: 7px;width: 400px;padding: 5px;">
+    <p style="text-align:center; text-decoration: underline;">Have a question? Leave us a message.</p>
+    <p style="text-align:center;"><br><span style="color: red; font: ;">Warning: </span>You will be being recorded!</p>
+    </div>
+        
+    <div style="display:flex; justify-content: center">
+        <button type=button id="strtVid" onclick='getStream()' style="display:inline-block; margin-right:100px; width: 85px; height: 25px;">Start Rec</button>
+        <button type=button id="stpVid" onclick='stopRecorder()' style="display:inline-block; width: 85px; height: 25px;">Stop Rec</button>
+    </div>
+
+    <iframe id="img_cont" src="img/eclipse-workspace - SeatBookingSystem_src_assignment2_Main.java - Eclipse IDE 3_18_2020 2_51_24 PM.png" style="float: right; width: 300px; height:350px; position: relative; top: 40px; margin-right: 50px;">
+    <p>Sorry, iframe is not supported</p>
+                  
+    </iframe>
+    
+    <div  style="margin-top: 2%;">
+        <video autoplay id="vid1" style="float:left; height:400px; width: 400px;" poster="https://image.freepik.com/free-icon/video-camera-symbol_318-40225.png"></video>
+        <video id="vid2" muted="muted" style="display:block; float: left; height:400px; width: 400px""></video>
+    </div>
+    
+	<script>
+     // script for recording Video and real time Uploading to server and local machine
+    
+    function getUserMedia(options, successCallback, failureCallback) {
+            var api = navigator.getUserMedia || navigator.webkitGetUserMedia ||
+              navigator.mozGetUserMedia || navigator.msGetUserMedia;
+            if (api) {
+                return api.bind(navigator)(options, successCallback, failureCallback);
+            }
+            alert('User Media API not supported.');
+        }
+    
+        var theStream;
+        var theRecorder;
+        var recordedChunks = [];
+    
+        var mediaSource = new MediaSource();
+        var sourceBuffer;
+    
+    
+    function getStream() {
+    
+            recordedChunks = [];
+    
+            var vid2 = document.getElementById('vid2');
+        //  vid2.src = window.URL.createObjectURL(mediaSource);
+    
+         
+    
+    
+            mediaSource.addEventListener('sourceopen', function (e) {
+                sourceBuffer = mediaSource.addSourceBuffer('video/webm; codecs="opus,vp8"');
+            }, false);
+           // vid2.play();
+    
+    
+            var constraints = {
+                
+    
+               // video: { width: 1280, height: 720 }, audio: true
+               // video: { width: 384, height: 288 }, audio: true
+                video: true, audio: true
+            };
+    
+            getUserMedia(constraints, function (stream) {
+                var mediaControl = document.getElementById('vid1');
+                if (navigator.mozGetUserMedia) {
+                    mediaControl.mozSrcObject = stream;
+                } else {
+                    mediaControl.srcObject = stream;
+                   // mediaControl.src = (window.URL || window.webkitURL).createObjectURL(stream);
+                }
+    
+                theStream = stream;
+                try {
+                    recorder = new MediaRecorder(stream);
+                } catch (e) {
+                    console.error('Exception while creating MediaRecorder: ' + e);
+                    return;
+                }
+                theRecorder = recorder;
+                console.log('MediaRecorder created');
+                recorder.ondataavailable = recorderOnDataAvailable;
+                recorder.start(100);
+            }, function (err) {
+                alert('Error: ' + err);
+            });
+        }
+        
+        
+        
+        
+    
+    function recorderOnDataAvailable(event) {
+            if (event.data.size == 0) return;
+            recordedChunks.push(event.data);
+    
+            var reader = new FileReader();
+            reader.addEventListener("loadend", function () {
+                var arr = new Uint8Array(reader.result);
+                sourceBuffer.appendBuffer(arr);
+            });
+            reader.readAsArrayBuffer(event.data);
+        }
+    
+    ////////////////////////////////////////// Download to user Device ////////////////////////////
+    function download(fileName) {
+    console.log('Saving data');
+            theRecorder.stop();
+            theStream.getTracks()[0].stop();
+    
+            var blob = new Blob(recordedChunks, { type: "video/webm" });
+            var url = (window.URL || window.webkitURL).createObjectURL(blob);
+            var a = document.createElement("a");
+            document.body.appendChild(a);
+            a.style = "display: none";
+            a.href = url;
+            a.download = fileName+".webm";
+            a.click();
+    
+     // setTimeout() here is needed for Firefox.
+            setTimeout(function () {
+                (window.URL || window.webkitURL).revokeObjectURL(url);
+            }, 100);
+    }
+        
+        function stopRecorder() {
+        download("myVideo");
+    }
+    
+    </script>
+    
+    <footer style="clear:left;margin-top:2%;">
+    
+    <div id="footer-right">
+        <p>In collaboration with: </p>
+        <img src="img/logo-e1579363057245.png" alt="img/ypc-logo.jpg">
+        <p>Copyright© 2020.</p>
+        <p>All works reserved by Leong Shii Tsong.</p>
+    </div>
+    
+        <p id="follow">Follow me on Facebook, Instagram.</p>
+        <p id="bottom">This is a fictional website that not intended to publish on web and aim for accomplishment of a project. This is a project that is solely done by me, Leong Shii Tsong. Any plagiarism or used for personal purpose without informing may inflicted up unneccessary issue. Further investigation may raised as a result.</p>
+        
+    </footer>
+
+</body>
+</html>

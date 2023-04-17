@@ -1,0 +1,218 @@
+<!doctype html>
+<html>
+<head>
+		<meta charset="utf-8">
+		<title>Projects Done By Me</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="eportfolio.css" rel="stylesheet" type="text/css" media="screen,projection">
+</head>
+
+<style>
+table{
+	width: 90%;
+	min-width: 700px;
+	margin: 0 auto;
+}
+
+table .left{
+	width: 15%;
+	text-align:right;
+	background-color: rgba(204,204,51,1);
+}
+
+table .right{
+	background-color: rgba(51,102,204,1);
+}
+
+table, td{
+	padding: 10px;
+}
+
+</style>
+
+<body>
+    <header>
+                <img src="img/header.png">
+    </header>
+            
+    <nav>
+        <div  id="logo"><a href="firstPage.html">My e-Portfolio</a></div>
+        <ul>
+            <li><a href="firstPage.html">Home</a></li>
+            <li><a href="secondPage.html">Modules</a></li>
+            <li><a class="active" href="thirdPage.html">Projects</a></li>
+            <li><a href="fourthPage.html">Video</a></li>
+        </ul>
+    </nav>
+    
+    <table>
+    	<tr>
+        <td class="left">Module Name: </td>
+        <td class="right">Introduction to Programming</td>
+        </tr>
+        <tr>
+        <td class="left">Module Title: </td>
+        <td class="right">Seat Booking System</td>
+    	</tr>
+        <tr>
+        <td class="left">Module Code: </td>
+        <td class="right">4100 COMP</td>
+        </tr>
+        <tr>
+        <td class="left">Assigned by: </td>
+        <td class="right">Ms. Noraniza Jaafar</td>
+        </tr>
+        <tr>
+        <td class="left">Overview: <button onClick="playSpeech()">Click me</button></td>
+        <td class="right" id="speech">A seat discount system is required to help managers of a railway company determined how much
+discount they've given out. Every time the system runs, discount rate may be specified by the
+managers or set to a default. You are required to produce a console application (using Java)
+that is ready to open the file M:\data\seats.txt which contains the seat’s data.</td>
+        </tr>
+        <tr>
+        <td class="left">Assignment Question: </td>
+        <td class="right"><a href="4100COMP_CW2_19_20.pdf" target="new">You can view it at here.</a></td>
+        </tr>
+        <tr>
+        <td class="left">Assignment Answer: </td>
+        <td class="right"><a href="Programming 2.pdf" target="new">You can view it at here.</a></td>
+        <tr>
+        <td class="left">Video: </td>
+        <td class="right"><video id="vid1" src="video/eclipse-workspace - SeatBookingSystem_src_assignment2_Main.java - Eclipse IDE.mp4" width="700" height="400"></video>  
+        <br><button onClick="play()" style="width: 85px; height: 25px;">Play</button>
+        <button onClick="pause()" style="width: 85px; height: 25px;">Pause</button>
+        <button onClick="cancel()" style="width: 85px; height: 25px;">Cancel</button>
+        <button onClick="fullScreen()" style="width: 85px; height: 25px;">Full Screen</button>
+        </td>
+    </table>
+
+	<table>
+    	<tr>
+        <td class="left">Module Name: </td>
+        <td class="right">English 1</td>
+        </tr>
+        <tr>
+        <td class="left">Module Code: </td>
+        <td class="right">LG 62013</td>
+        </tr>
+        <tr>
+        <td class="left">Assigned by: </td>
+        <td class="right">Ms. Mahes</td>
+        </tr>
+        <tr>
+        <td class="left">Overview: <button onClick="playSpeech2()">Click me</button></td>
+        <td class="right" id="speech2">Students are required to accomplish this assignment by using the proper and correct grammar rules. Students are also required to complete an essay about his/her college life using proper english.</td>
+        </tr>
+        <tr>
+        <td class="left">Assignment Answer: </td>
+        <td class="right"><a href="English 2.pdf" target="new">You can view it at here.</a></td>
+        <tr>
+        <td class="left">Video: </td>
+        <td class="right"><video id="vid2" src="video/English 2 - Word.mp4" width="700" height="400"></video>  
+        <br><button onClick="play()" style="width: 85px; height: 25px;">Play</button>
+        <button onClick="pause()" style="width: 85px; height: 25px;">Pause</button>
+        <button onClick="cancel()" style="width: 85px; height: 25px;">Cancel</button>
+        <button onClick="fullScreen()" style="width: 85px; height: 25px;">Full Screen</button>
+        </td>
+    </table>
+
+	
+	<script>
+	
+    var player1 = document.getElementById('vid1');
+	
+	function play(){
+		player1.play();
+	}
+	
+    function pause(){
+        player1.pause();
+        return false;
+    }
+	
+	function cancel(){
+		player1.pause();
+		player1.currentTime=0;
+	}
+	
+	function fullScreen() {
+		if (player1.requestFullscreen) {
+		  player1.requestFullscreen();
+		} else if (player1.mozRequestFullScreen) { /* Firefox */
+		  player1.mozRequestFullScreen();
+		} else if (player1.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+		  player1.webkitRequestFullscreen();
+		} else if (player1.msRequestFullscreen) { /* IE/Edge */
+		  player1.msRequestFullscreen();
+		}
+		
+		play();
+	}
+
+
+	var player2 = document.getElementById('vid2');
+	
+	function play(){
+		player2.play();
+	}
+	
+    function pause(){
+        player2.pause();
+        return false;
+    }
+	
+	function cancel(){
+		player2.pause();
+		player2.currentTime=0;
+	}
+	
+	function fullScreen() {
+		if (player2.requestFullscreen) {
+		  player2.requestFullscreen();
+		} else if (player2.mozRequestFullScreen) { /* Firefox */
+		  player2.mozRequestFullScreen();
+		} else if (player2.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+		  player.webkitRequestFullscreen();
+		} else if (player2.msRequestFullscreen) { /* IE/Edge */
+		  player2.msRequestFullscreen();
+		}
+		
+		play();
+	}
+    </script>
+    
+    <script>
+    function playSpeech(){
+        var msg = new SpeechSynthesisUtterance(document.getElementById('speech').innerText);
+        msg.lang="en-UK";
+        window.speechSynthesis.speak(msg);
+    }
+	
+	    function playSpeech2(){
+        var msg2 = new SpeechSynthesisUtterance(document.getElementById('speech2').innerText);
+        msg2.lang="en-UK";
+        window.speechSynthesis.speak(msg2);
+    }
+    </script>
+        
+    <footer>
+    
+    <div id="footer-right">
+        <p>In collaboration with: </p>
+        <img src="img/logo-e1579363057245.png" alt="img/ypc-logo.jpg">
+        <p>Copyright© 2020.</p>
+        <p>All works reserved by Leong Shii Tsong.</p>
+    </div>
+    
+        <p id="follow">Follow me on Facebook, Instagram.</p>
+        <p id="bottom">This is a fictional website that not intended to publish on web and aim for accomplishment of a project. This is a project that is solely done by me, Leong Shii Tsong. Any plagiarism or used for personal purpose without informing may inflicted up unneccessary issue. Further investigation may raised as a result.</p>
+        
+    </footer>
+</body>
+</html>
+
+<!--Include a brief overview of each project related to modules (you added in Page 2).
+
+ You need to add a button providing the speech synthesis functionality on click
+event, to verbally read the ‘overview text’ of corresponding work to the user in
+English language.-->
